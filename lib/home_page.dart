@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
+import 'report_lost_page.dart';
+import 'report_found_page.dart';
+import 'view_lost_page.dart';
+import 'view_found_page.dart';
+import 'login_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
-  Widget buildTile({
-    required IconData icon,
-    required String title,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
+  Widget item(BuildContext context, String title, Widget page) {
     return Card(
-      elevation: 3,
       margin: const EdgeInsets.symmetric(vertical: 10),
       child: ListTile(
-        leading: Icon(icon, color: color, size: 30),
-        title: Text(
-          title,
-          style: const TextStyle(fontSize: 18),
-        ),
+        title: Text(title),
         trailing: const Icon(Icons.arrow_forward_ios),
-        onTap: onTap,
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (_) => page),
+          );
+        },
       ),
     );
   }
@@ -27,50 +27,28 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Lost & Found"),
-        automaticallyImplyLeading: false,
-      ),
+      appBar: AppBar(title: const Text("Lost & Found")),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            buildTile(
-              icon: Icons.search,
-              title: "Report Lost Item",
-              color: Colors.red,
-              onTap: () {},
-            ),
-            buildTile(
-              icon: Icons.inventory,
-              title: "Report Found Item",
-              color: Colors.green,
-              onTap: () {},
-            ),
-            buildTile(
-              icon: Icons.list,
-              title: "View Lost Items",
-              color: Colors.orange,
-              onTap: () {},
-            ),
-            buildTile(
-              icon: Icons.check_circle,
-              title: "View Found Items",
-              color: Colors.blue,
-              onTap: () {},
-            ),
+
+            item(context, "Report Lost Item", ReportLostPage()),
+            item(context, "Report Found Item", ReportFoundPage()),
+            item(context, "View Lost Items", ViewLostPage()),
+            item(context, "View Found Items", ViewFoundPage()),
+
             const Spacer(),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.red),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text("Logout"),
-              ),
-            ),
+
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (_) => const LoginPage()),
+                );
+              },
+              child: const Text("Logout"),
+            )
           ],
         ),
       ),

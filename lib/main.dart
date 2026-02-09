@@ -10,13 +10,9 @@ class LostFoundApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Lost & Found',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
-      home:  LoginPage(),
+      home: LoginPage(),
     );
   }
 }
