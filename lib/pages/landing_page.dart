@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:line_icons/line_icons.dart';
-
+import 'package:lost_found_app/pages/report_page.dart';
+import 'package:lost_found_app/pages/account_page.dart';
 class Landing_Page extends StatefulWidget {
   @override
   _Landing_PageState createState() => _Landing_PageState();
@@ -16,18 +17,12 @@ class _Landing_PageState extends State<Landing_Page> {
       'Home',
       style: optionStyle,
     ),
-    Text(
-      'Likes',
-      style: optionStyle,
-    ),
+    const ReportPage(),
     Text(
       'Search',
       style: optionStyle,
     ),
-    Text(
-      'Profile',
-      style: optionStyle,
-    ),
+    const AccountPage()
   ];
 
   @override
@@ -36,7 +31,7 @@ class _Landing_PageState extends State<Landing_Page> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 20,
-        title: const Text('GoogleNavBar'),
+        title: const Text('Lost&Found'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -47,7 +42,7 @@ class _Landing_PageState extends State<Landing_Page> {
           boxShadow: [
             BoxShadow(
               blurRadius: 20,
-              color: Colors.black.withOpacity(.1),
+              color: Colors.black,
             )
           ],
         ),
@@ -66,19 +61,20 @@ class _Landing_PageState extends State<Landing_Page> {
               color: Colors.black,
               tabs: [
                 GButton(
-                  icon: LineIcons.home,
-                  text: 'Home',
-                ),
-                GButton(
-                  icon: LineIcons.heart,
-                  text: 'Likes',
-                ),
-                GButton(
                   icon: LineIcons.search,
                   text: 'Search',
                 ),
                 GButton(
-                  icon: LineIcons.user,
+                  icon: LineIcons.plus,
+                  text: 'Report',
+                ),
+                GButton(
+                  icon: LineIcons.folderOpen,
+                  text: 'Reported',
+                ),
+                
+                GButton(
+                  icon: LineIcons.userCircle,
                   text: 'Profile',
                 ),
               ],

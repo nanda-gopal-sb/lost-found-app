@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:lost_found_app/main.dart';
-import 'package:lost_found_app/pages/account_page.dart';
 import 'package:lost_found_app/pages/landing_page.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
