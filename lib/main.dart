@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lost_found_app/pages/landing_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:lost_found_app/pages/account_page.dart';
 import 'package:lost_found_app/pages/login_page.dart';
 
 Future<void> main() async {

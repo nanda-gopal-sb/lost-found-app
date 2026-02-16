@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:lost_found_app/main.dart'; // Ensure your supabase instance is here
 import 'package:line_icons/line_icons.dart';
 

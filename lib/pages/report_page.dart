@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:lost_found_app/main.dart';
 
 class ReportPage extends StatefulWidget {
